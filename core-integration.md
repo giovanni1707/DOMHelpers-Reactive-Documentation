@@ -6,59 +6,31 @@ DOM Helpers Reactive is fundamentally different from traditional reactive librar
 
 When they are used together, updating data and updating the DOM feel like one natural flow. This makes your code easier to read, easier to understand, and easier to build on, even as your app grows.
 
-## The Dual Nature
+### The Dual Nature
 
-### Works Independently: Pure Reactive JavaScript
-
-Here, DOM Helpers Reactive is used **completely on its own**.
-
-You create reactive state, define an effect, and manually update the DOM using standard JavaScript APIs. Nothing is hidden. Nothing is abstracted away.
-
-This demonstrates an important point:
-
-> **If you understand JavaScript, you already understand DOM Helpers Reactive.**
+**Works Independently:**
 ```javascript
 // Perfectly functional standalone reactive system
 const state = state({ count: 0 });
 
 effect(() => {
-  const counter = document.querySelector('#counter');
+const counter = document.querySelector('#counter');
 
-  counter.textContent = state.count;
+counter.textContent = state.count;
 
-  if (state.count > 10) {
-    counter.style.color = 'red';
-    counter.style.fontWeight = 'bold';
-  } else {
-    counter.style.color = 'blue';
-    counter.style.fontWeight = 'normal';
-  }
+if (state.count > 10) {
+  counter.style.color = 'red';
+  counter.style.fontWeight = 'bold';
+} else {
+  counter.style.color = 'blue';
+  counter.style.fontWeight = 'normal';
+}
 });
 
 state.count++; // "Count: 1"
 ```
 
-✅ The state is reactive  
-✅ The effect re-runs automatically  
-✅ DOM updates are explicit and fully controlled  
-✅ No Core utilities are involved
-
-- This is **raw, honest reactive JavaScript**.
-- It works perfectly.
-
----
-
-### Gains Superpowers with Integration: Declarative UI Flow
-
-Now, nothing about the reactive logic changes.
-
-The **state is the same**.  
-The **effect is the same**.  
-The **conditions are the same**.
-
-The only difference is *how* the DOM is updated.
-
-By integrating DOM Helpers Core, the imperative DOM manipulation is replaced with a **declarative `.update()` call** that expresses *what the UI should look like*, not *how to mutate it step by step*.
+**Gains Superpowers with Integration:**
 ```javascript
 // Same reactive foundation + DOM Helpers Core = Declarative UI magic
 const state = state({ count: 0 });
@@ -75,38 +47,6 @@ effect(() => {
 
 state.count++; // DOM auto-updates with styled content
 ```
-
-✨ No `querySelector`  
-✨ No manual style toggling  
-✨ No branching DOM logic  
-✨ One expressive, declarative update
-
-The effect now **reads like a description of the UI**, not a sequence of DOM operations.
-
----
-
-### What Changed — and What Didn't
-
-**What stayed the same:**
-
-* Reactive state
-* Effects
-* Dependency tracking
-* JavaScript mental model
-
-**What improved:**
-
-* Readability
-* Expressiveness
-* Maintainability
-* Scalability
-
-This is the essence of DOM Helpers:
-
-> **You still write imperative logic — but you express it declaratively.**
-
-You're not choosing between standalone power *or* integration.  
-You get both — and you opt into the superpowers only when you want them.
 
 The difference? **The integrated approach transforms reactive code from functional to delightful—adding expressiveness, declarative power, and zero boilerplate.**
 
@@ -149,7 +89,7 @@ The difference? **The integrated approach transforms reactive code from function
 
 #### 1. **Independence with Integration Benefits**
 
-The reactive system doesn't require DOM Helpers Core—it's a fully capable reactive library on its own. But when combined with DOM Helpers Core, something magical happens: reactive code becomes more expressive, more powerful, and more enjoyable to write.
+The reactive system doesn't require DOM Helpers Core—it's a fully capable reactive library on its own. But when combined with Core, something magical happens: reactive code becomes more expressive, more powerful, and more enjoyable to write.
 
 **Standalone (Fully Functional):**
 ```javascript
@@ -177,29 +117,12 @@ effect(() => {
   });
 });
 
+// Add conditional styling without extra effects
+whenState(() => state.status, {
+  'loading': { style: { opacity: 0.5 } },
+  'ready': { style: { opacity: 1 } }
+}, '#users');
 ```
-
-## Simplified DOM Access
-
-Note how this single line:
-```javascript
-Elements.users
-```
-
-replaces the following plain JavaScript code:
-```javascript
-const container = document.getElementById('users');
-container.innerHTML = state.users;
-```
-
-### With DOM Helpers Core:
-
-* No need to call `document.getElementById()`
-* No need to store DOM references in variables `const container`
-* Elements are accessed directly by name
-* The underlying DOM lookup is automatically cached
-* Your code stays focused on what you want to update, not how to find elements
-
 
 **The integration doesn't add complexity—it removes it.**
 
@@ -209,15 +132,14 @@ container.innerHTML = state.users;
 
 The reactive system handles change detection. The Core library handles elegant DOM updates. Together, they eliminate boilerplate while expanding capabilities.
 
-## Traditional Reactive Approach
+**Traditional Reactive Approach (Verbose):**
 ```javascript
 effect(() => {
   const el = document.getElementById('status');
-
   el.textContent = state.status;
   el.style.color = state.isActive ? 'green' : 'gray';
   el.style.fontWeight = state.isActive ? 'bold' : 'normal';
-
+  
   if (state.isActive) {
     el.classList.add('active');
   } else {
@@ -226,42 +148,21 @@ effect(() => {
 });
 ```
 
-Notice the repetition and mechanical overhead:
-
-* `el` → 6 times
-* `style` → 2 times
-* `classList` → 2 times
-* Manual DOM querying
-* Manual conditional logic scattered across lines
-
-
-
-## DOM Helpers Integration (Clean & Declarative)
+**DOM Helpers Integration (Clean & Declarative):**
 ```javascript
 effect(() => {
   Elements.status.update({
     textContent: state.status,
-    style: {
+    style: { 
       color: state.isActive ? 'green' : 'gray',
       fontWeight: state.isActive ? 'bold' : 'normal'
     },
-    classList: {
-      toggle: 'active'
+    classList: { 
+      toggle: 'active' 
     }
   });
 });
 ```
-
-The same behavior, expressed declaratively:
-
-* `el` → 0 times
-* `style` → 1 time
-* `classList` → 1 time
-* No DOM querying
-* No temporary variables
-* No scattered conditionals
-
-DOM Helpers **removes repetition** not by hiding logic, but by **grouping intent**.
 
 **The reactive system provides reactivity. The Core library provides clarity. Together, they create readable, maintainable code.**
 
@@ -337,79 +238,6 @@ autoSave(counter, 'counterState', {
   debounce: 300
 });
 ```
-## But what difference does DOM Helpers Core actually make?
-
-Let's start with the same plain JavaScript line:
-```javascript
-document.getElementById('counter').textContent = counter.count;
-```
-
-Now imagine you want to also style the counter:
-
-* text color
-* background color
-* font size
-
-
-### Plain JavaScript (verbosity grows fast)
-```javascript
-const counterEl = document.getElementById('counter');
-
-counterEl.textContent = counter.count;
-counterEl.style.color = 'white';
-counterEl.style.backgroundColor = 'green';
-counterEl.style.fontSize = '24px';
-```
-
-**What's happening here:**
-
-* The element must be stored in a variable
-* `counterEl` is repeated multiple times
-* `style` is accessed line by line
-* Updates are scattered and mechanical
-* The intent is fragmented
-
-This is normal JavaScript — but it doesn't scale nicely.
-
-
-
-### With DOM Helpers Core (same native query but enhanced)
-
-Now look at the same logic, still using `document.getElementById` — but enhanced by DOM Helpers Core:
-```javascript
-document.getElementById('counter').update({
-  textContent: counter.count,
-  style: {
-    color: 'white',
-    backgroundColor: 'green',
-    fontSize: '24px'
-  }
-});
-```
-
-**Why this feels different:**
-
-* One element access
-* One update call
-* No variable storage
-* No repeated references
-* Styles are grouped declaratively
-* The code reads like a configuration, not instructions
-
-You're still using native DOM queries — they're just more expressive now.
-
-
-
-### The real takeaway
-
-> **DOM Helpers Core doesn't change what you do.**  
-> **It changes how clearly you express it.**
-
-* Imperative behavior
-* Declarative structure
-* No framework lock-in
-* Works with existing code
-* Beautiful even at scale
 
 **Each feature is optional. Add them as your needs evolve. Never rewrite.**
 

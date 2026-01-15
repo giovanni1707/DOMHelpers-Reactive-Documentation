@@ -402,11 +402,19 @@ export default defineConfig({
               text: "Learning Philosophy",
               link: "/getting-started/learning-philosophy",
             },
+
+            { text: "Installation", link: "/getting-started/installation" },
+          ],
+        },
+
+        {
+          text: "Reactivity With Core Integration",
+          collapsed: true,
+          items: [
             {
               text: "Core Integration",
               link: "/getting-started/core-integration",
             },
-            { text: "Installation", link: "/getting-started/installation" },
           ],
         },
 
@@ -423,13 +431,6 @@ export default defineConfig({
           ],
         },
 
-        {
-          text: "Roadmaps",
-          collapsed: true,
-          items: [
-            { text: "roadmap 1", link: "/getting-started/roadmap-1" },
-          ],
-        },
       ],
 
       // All these routes share the same sidebar
@@ -587,6 +588,7 @@ export default defineConfig({
       "/cleanup-system/": otherSidebar,
       "/reactivity-engine/": otherSidebar,
       "/development-tool/": otherSidebar,
+      "/reactive-core/": otherSidebar,
 
       "/creator/": [
         {
