@@ -118,7 +118,7 @@ At first glance, this looks fine. But there's a hidden limitation.
 ✅ [Make them concrete]
 ```
 
-### Approach 2: when comparing with the library methods
+### Approach 2: when comparing with the library existing methods
 ## Why Does This Exist?
 
 ### [Approach 1] - When [Use Case A] Is Your Priority
