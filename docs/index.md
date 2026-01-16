@@ -36,4 +36,3 @@ features:
     title: Beginner Friendly
     details: Learn reactivity by understanding it, not memorizing framework abstractions. Build intuition that transfers anywhere.
 
-   
