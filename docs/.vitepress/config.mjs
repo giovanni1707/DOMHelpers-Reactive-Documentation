@@ -409,6 +409,9 @@ export default defineConfig({
           { text: "Sponsor", link: "/sponsor/sponsor" },
         ],
       },
+
+      { text: "DOM Helpers Core_Reactive", link: "https://example" },
+
       { text: "DOM Helpers Core", link: "https://example" },
     ],
 
