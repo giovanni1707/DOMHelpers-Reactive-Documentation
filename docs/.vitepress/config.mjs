@@ -412,7 +412,7 @@ export default defineConfig({
 
       { text: "ReactivePlus", link: "https://giovanni1707.github.io/DOMHelpers-ReactivePlus" },
 
-      { text: "DOMHelpers Core", link: "https://example" },
+      { text: "Core", link: "https://example" },
     ],
 
     sidebar: {
@@ -450,7 +450,7 @@ export default defineConfig({
         },
         
         { text: "ReactivePlus", link: "https://giovanni1707.github.io/DOMHelpers-ReactivePlus" },
-        { text: "DOMHelpers Core", link: "https://example" },
+        { text: "Core", link: "https://example" },
 
         {
           text: "Methods Learning Guide",
