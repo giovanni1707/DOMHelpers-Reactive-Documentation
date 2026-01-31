@@ -228,7 +228,6 @@ const sharedSidebar = [
 ];
 
 const otherSidebar = [
-
   {
     text: "CleanUp System",
     collapsed: true,
@@ -300,7 +299,7 @@ const otherSidebar = [
 ];
 
 const storageSidebar = [
-            {
+  {
     text: "Storage Integration",
     collapsed: true,
     items: [
@@ -361,7 +360,7 @@ const storageSidebar = [
       { text: "immediate", link: "/watchstorage-options/options.immediate" },
     ],
   },
-]
+];
 
 export default defineConfig({
   title: "DOM Helpers ",
@@ -370,9 +369,11 @@ export default defineConfig({
   ignoreDeadLinks: true,
 
   themeConfig: {
-
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/giovanni1707/DOMHelpers-Reactive-System' }
+      {
+        icon: "github",
+        link: "https://github.com/giovanni1707/DOMHelpers-Reactive-System",
+      },
     ],
 
     nav: [
@@ -397,8 +398,14 @@ export default defineConfig({
         items: [
           { text: "Cleanup System", link: "/cleanup-system/collector" },
           { text: "Error Handling", link: "/error-handling/ErrorBoundary" },
-          { text: "Reactivity Engine", link: "/reactivity-engine/under-the-hood" },
-          { text: "Development Tools", link: "/development-tool/DevTools-overview" },
+          {
+            text: "Reactivity Engine",
+            link: "/reactivity-engine/under-the-hood",
+          },
+          {
+            text: "Development Tools",
+            link: "/development-tool/DevTools-overview",
+          },
         ],
       },
       // UPDATED: Created a dropdown for About section
@@ -410,9 +417,8 @@ export default defineConfig({
         ],
       },
 
-      { text: "ReactivePlus", link: "https://giovanni1707.github.io/DOMHelpers-ReactivePlus" },
-
-      { text: "Core", link: "https://example" },
+      { text: "ReactivePlus", link: "/reactivePlus/what-is-ReactivePlus" },
+      { text: "DOMHelpers Core", link: "https://example" },
     ],
 
     sidebar: {
@@ -438,19 +444,7 @@ export default defineConfig({
           ],
         },
 
-        {
-          text: "Reactivity With Core Integration",
-          collapsed: true,
-          items: [
-            {
-              text: "Core Integration",
-              link: "/getting-started/core-integration",
-            },
-          ],
-        },
-        
-        { text: "ReactivePlus", link: "https://giovanni1707.github.io/DOMHelpers-ReactivePlus" },
-        { text: "Core", link: "https://example" },
+        { text: "DOMHelpers Core", link: "https://example" },
 
         {
           text: "Methods Learning Guide",
@@ -462,7 +456,6 @@ export default defineConfig({
             },
           ],
         },
-
       ],
 
       // All these routes share the same sidebar
@@ -593,27 +586,30 @@ export default defineConfig({
       // shared sidebar for storage
       "/storage-integration/": storageSidebar,
 
-       "/async-operations/": [
-      {
-    text: "Async State Operations",
-    collapsed: true,
-    items: [
-      { text: "asyncState", link: "/async-operations/asyncState" },
-      { text: "execute", link: "/async-operations/execute" },
-      { text: "abort", link: "/async-operations/abort" },
-      { text: "reset", link: "/async-operations/reset" },
-      { text: "refetch", link: "/async-operations/refetch" },
-      { text: "data", link: "/async-operations/data" },
-      { text: "loading", link: "/async-operations/loading" },
-      { text: "error", link: "/async-operations/error" },
-      { text: "requestId", link: "/async-operations/requestId" },
-      { text: "abortController", link: "/async-operations/abortController" },
-      { text: "isSuccess", link: "/async-operations/isSuccess" },
-      { text: "isError", link: "/async-operations/isError" },
-      { text: "isIdle", link: "/async-operations/isIdle" },
-    ],
-  },
-       ],
+      "/async-operations/": [
+        {
+          text: "Async State Operations",
+          collapsed: true,
+          items: [
+            { text: "asyncState", link: "/async-operations/asyncState" },
+            { text: "execute", link: "/async-operations/execute" },
+            { text: "abort", link: "/async-operations/abort" },
+            { text: "reset", link: "/async-operations/reset" },
+            { text: "refetch", link: "/async-operations/refetch" },
+            { text: "data", link: "/async-operations/data" },
+            { text: "loading", link: "/async-operations/loading" },
+            { text: "error", link: "/async-operations/error" },
+            { text: "requestId", link: "/async-operations/requestId" },
+            {
+              text: "abortController",
+              link: "/async-operations/abortController",
+            },
+            { text: "isSuccess", link: "/async-operations/isSuccess" },
+            { text: "isError", link: "/async-operations/isError" },
+            { text: "isIdle", link: "/async-operations/isIdle" },
+          ],
+        },
+      ],
 
       //shared sidebar for otherSidebar
       "/error-handling/": otherSidebar,
@@ -628,7 +624,10 @@ export default defineConfig({
           collapsed: true,
           items: [
             { text: "About Me", link: "/creator/creator" },
-            { text: "Approach & Philosophy", link: "/creator/approach-and-philosophy" },
+            {
+              text: "Approach & Philosophy",
+              link: "/creator/approach-and-philosophy",
+            },
             { text: "Contact And Support", link: "/creator/contact-info" },
           ],
         },
@@ -641,6 +640,85 @@ export default defineConfig({
           items: [
             { text: "sponsor", link: "/sponsor/sponsor" },
             { text: "developer note", link: "/sponsor/note" },
+          ],
+        },
+      ],
+
+      "/reactivePlus/": [
+        {
+          text: "Reactivity With Core Integration",
+          collapsed: true,
+          items: [
+            {
+              text: "What is ReactivePlus",
+              link: "/reactivePlus/what-is-ReactivePlus",
+            },
+            {
+              text: "Why ReactivePlus ",
+              link: "/reactivePlus/why-ReactivePlus",
+            },
+            {
+              text: "How pieces fit together",
+              link: "/reactivePlus/how-pieces-fit-together",
+            },
+            {
+              text: "Set-up and integration",
+              link: "/reactivePlus/setup-integration",
+            },
+            {
+              text: "Essential-patterns",
+              link: "/reactivePlus/essential-patterns",
+            },
+            {
+              text: "Bulk eventListeners",
+              link: "/reactivePlus/bulk-eventListeners",
+            },
+          ],
+        },
+
+        {
+          text: "More on ReactivePlus",
+          collapsed: true,
+          items: [
+            {
+              text: "State Creation",
+              link: "/reactivePlus/state-creation",
+            },
+
+            {
+              text: "Ref",
+              link: "/reactivePlus/ref",
+            },
+
+            {
+              text: "Refs",
+              link: "/reactivePlus/refs",
+            },
+
+            {
+              text: "Store",
+              link: "/reactivePlus/store",
+            },
+
+            {
+              text: "Builder",
+              link: "/reactivePlus/builder",
+            },
+
+            {
+              text: "Collection creation",
+              link: "/reactivePlus/createCollection",
+            },
+
+            {
+              text: "Computed Collection",
+              link: "/reactivePlus/computedCollection",
+            },
+
+            {
+              text: "Filtered Collection",
+              link: "/reactivePlus/filteredCollection",
+            },
           ],
         },
       ],
